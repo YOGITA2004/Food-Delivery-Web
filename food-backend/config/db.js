@@ -1,5 +1,7 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-export const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://yogitasingh02102004_db_user:Yogimilky@cluster0.di2834k.mongodb.net/food-del').then(()=>console.log("DB Connected"));
-}
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
